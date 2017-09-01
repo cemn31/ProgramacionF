@@ -1,0 +1,170 @@
+\documentclass[a4paper,12pt]{article}
+
+% set font encoding for PDFLaTeX or XeLaTeX
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{lmodern}
+\fi
+
+% used in maketitle
+\title{\textbf{COMANDOS BÁSICOS DE BASH}}
+\author{Carlos Eduardo Martinez Núñez\\
+Departamento de Física\\
+Universidad de Sonora}
+
+%Pages size
+\usepackage[left=3cm,right=3cm,top=4cm,bottom=2cm]{geometry}
+
+% Enable SageTeX to run SageMath code right inside this LaTeX file.
+% documentation: http://mirrors.ctan.org/macros/latex/contrib/sagetex/sagetexpackage.pdf
+% \usepackage{sagetex}
+
+\begin{document}
+\maketitle
+
+\section{¿Qué es la linea de comando a terminal?}
+
+Es una interfaz del sistema de basada en texto, donde podras entrar comandos y recibir respuesta en texto tambien.
+\subsection{¿Qué es Bash?}
+Es una mascara para la terminal que determina como luce y se comporta al usarla. Es un intermediario entre el usuario y el sistema.
+
+\section{Atajos básicos en Bash}
+
+Cuando se introducen comandos en Bash, existen un par de atajos claves que permiten ahorrar tiempo:
+
+\begin{itemize}
+\item{\textbf{Teclas direcconales (Arriba, abajo)}}: Se pueden usar para acceder a los comandos usados c
+\item{\textbf{Tecla tab}}: Permite realizar un autocompletado del comando o camino a digitar.
+\end{itemize}
+
+\section{Navegación en Bash}
+
+Existen unos comando básicos que ayudan para explorar archivos y carpetas en Bash. Algunos de ellos son: 
+
+\begin{itemize}
+\item{\textbf{pwd}}: Muesta la ruta hasta al posición del directorio actual en Bash, ejemplo: pwd (forma básica).
+\item{\textbf{ls}}: Muestra el contenido del directorio actual, ejemplo: ls (forma básica).
+\item{\textbf{ls -l}}: Muestra el contenido del directorio enlistados por categorias.
+\item{\textbf{las -a}}:Muestra todos los documentos hasta los ocultos en un directorio.
+\item{\textbf{file}}: Permite obtener informacion sobre el tipo de archivo de un archivo o directorio, ejemplo: file (nombre de archivo o camino.
+\end{itemize}
+
+\section{Tipos de rutas en Bash}
+
+La ubicación de un archivo o directorio en Bash, puede especificarse de dos formas:
+
+\begin{itemize}
+\item{\textbf{Ruta Absoluta}}: Se refiere a la ubicación de un directorio o archivo en relación con el directorio home de un usuario especifíco, ejemplo: ls /home/caedumanu/Documents.
+\item{\textbf{Ruta relativa}}: Indica la ubicacíon del directorio o archivo en relación a la ubicación actual del usuario, ejemplo: ls Documents.
+\end{itemize}
+
+\section{Manual de Bash}
+
+Bash provee un manual con el que se puede consultar para aclarar dudas sobre el uso de los comandos. La forma de utilizarlo es:
+
+\begin{itemize}
+\item{\textbf{man}}: Permite obtener información de ayuda sobre un comando en particular, ejemplo: man mkdir.
+\item{\textbf{man -k}}: Realiza un busqueda y enlista todos los comandos relacionados con la palabra clave, ejemplo: man -k copy.
+\end{itemize}
+
+\section{Trabajando con directorios}
+
+Los siguientes comandos básico corresponden a las acciones mas usuales al trabajar con direcctorios:
+
+\begin{itemize}
+\item{\textbf{cd}}: Permite cambiar de directorios, ejemplo: cd Music. Si se coloca sin argumentos lleva al directorio raiz, ejemplo: cd. Se puede utilizar en combinación con las distintas rutas mencionados antes, ejemplo: cd/home/caedumanu/Desktop
+ó cd Desktop.
+\item{\textbf{mkdir}}: Crea un directorio con el nombre especificado, ejemplo, mkdir Notas. Se puede usar rutas absolutas o relativas para crear los directorios en la
+posición deseada.
+\item{\textbf{mkdir -p}}: Crea crea directorios dentro de otros directorios, ejemplo: mkdir -p /caedumanu/Notas/Notas2, permite crear al directorio Notas y dentro de él Notas2.
+\item{\textbf{mkdir -pv}}: Crea los directorios uno dentro de otros indicando los detalles que se llevaron a cavo en el proceso.
+\item{\textbf{rmdir}}: Elimina el directorio seleccionado, ejemplo: rmdir Notas2. Se puede usar rutas absolutas o relativas.
+\item{\textbf{rmdir -p}}: Realiza una función a análoga a la de mkdir.
+\item{\textbf{rmdir -r}}: Elimina al directorio con todo su contenido, ejemplo: rmdir -r Notas2.
+\item{\textbf{touch}}: Crea un archivo en blanco dentro de un directorio dado, ejemplo: touch prueba1.
+\item{\textbf{cp}}: Copia el archivo seleccionado a la dirección especificada, ejemplo: cp prueba1 Desktop. Tambien puede copiar el contenido de un archivo a otro de nombre dado, ejemplo: cp prueba1 prueba2. Puede usarse con rutas absolutas
+o relativas.
+\item{\textbf{cp -r}}: Realizada una copia de todo el contenido dentro del directorio especificado al destino,ejemplo: cp Notas Documents.
+\item{\textbf{mv}}: Mueve archivos o carpetas al destino seleccionado. No requiere el uso de -r. Ejemplo: mv Notas Desktop. Se puede usar este comando tambien para cambiar el nombre de un archivo en la misma ubicación, ejemplo: mv Notas
+Notas2.
+\item{\textbf{rm}}: Permite eliminar un archivo, ejemplo: rm prueba1.
+\end{itemize}
+
+\section{Editor de texto "vi"}
+
+Es un editor básico de texto en Bash. Podemos usar el modo de entrada de texto, para introducir contenido, o el modo de edición para realizar acciones de correpciòn como copiado, eliminado, búsqueda, sustitución y guardado. Algunos comandos básicos son:
+
+\begin{itemize}
+\item{\textbf{vi}}:Permite crear un archivo de texto, ejemplo: vi notas1.
+\end{itemize}
+
+Dentro del documento, existen varias opciones para la facil manipulación y vagación, estas opciones son:
+
+\begin{itemize}
+\item{\textbf{i}}: Se entra en el modo de edición del documento.
+\item{\textbf{ZZ (Mayusculas)}}: Se ejecuta al dar enter al acción de guardar y salir.
+\item{\textbf{q!}}: Al dar enter se descartan los cambios. Se obtienen solo los últimos cambios guardados.
+\item{\textbf{w}}: Al dar enter guarda el archivo, pero no se sale de èl.
+\item{\textbf{wq}}: Al dar enter se guarda y se sale del documento. 
+\item{\textbf{cat}}: Permite visualizar el contenido del archivo, ejemplo: cat notas1.
+\item{\textbf{less}}: Permite visualizar archivos grandes con facilidad moviéndote dentro de èl con las teclas de dirección. Las paginas se pasan hacia adelante con la tecla espaciadora y hacia atrás con la tecla b. con q se sale del documento.
+\item{\textbf{Ctrl c}}: Esta combinación de letras permite salir de cualquier acción inapropiada de tecleo de comandos.
+\end{itemize}
+
+Las siguientes opciones permiten moverse con facilidad dentro de un documento de texto con vi:
+
+\begin{itemize}
+\item{\textbf{Teclas direccionales}}: Permite moverse en todas la direcciones.
+\item{\textbf{Teclas j,k,h,l}}: Permiten movimientos similares al de las teclas de dirección.
+\item{\textbf{nG}}: Mueve el cursor a la línea n especificada.
+\item{\textbf{G}}: Mueve el cursor a la línea n especificada.
+\item{\textbf{w}}: Mueve el cursor al inicio de la siguiente palabra.
+\item{\textbf{nw}}: Mueve el cursor n palabras hacia adelante en la línea.
+\item{\textbf{b}}: Mueve el cursor al inicio de la palabra anterior.
+\item{\textbf{nb}}: Mueve el cursor a la posición de n palabras hacia atrás.
+\item{\textbf{x}}: Elimina un carácter.
+\item{\textbf{nx}}: Elimina n caracteres.
+\item{\textbf{dd}}: Elimina la línea actual.
+\item{\textbf{dn}}: d seguido por un comando de movimiento. Elimina donde el comando lleve en la línea.
+\item{\textbf{u}}: Deshace la ultima acción.
+\item{\textbf{U}}: Deshace todos los cambios en la línea actual.
+\end{itemize}
+
+\section{Tipos de permisos en Linux}
+
+Un archivo en linux puede tener uno, dos o tres de los siguientes permisos:
+
+\begin{itemize}
+\item{\textbf{r (read)}}: Se puede ver el contenido del archivo solamente.
+\item{\textbf{w (write)}}: Se puede cambiar el contenido del archivo.
+\item{\textbf{x (execute)}}: Se puede ejecutar o correr un programa o script.
+\end{itemize}
+
+Tambien se puede especificar a las personas a las que se le concede permisos, como:
+
+\begin{itemize}
+\item{\textbf{Propietario (owner)}}: La persona a quien pertenece el archivo.
+\item{\textbf{Grupo (group}}: Todo archivo perteneciente a un grupo.
+\item{\textbf{Otros (others)}}: Cualquiera diferente al grupo a al propietario.
+\end{itemize}
+
+Los comandos usualmente usados para ver y cambiar los permisos, corresponden a:
+
+\begin{itemize}
+\item{\textbf{ls -l}}: Permite ver los permisos de la ruta en el camino absoluto o relativo especificado.
+\item{\textbf{chmod}}: Permite modificar el tipo de permiso del archivo en la ubicación dada.
+\end{itemize}
+
+Con respecto a los directorios, tambien se pueden otorgar permisos dados de la siguiente forma:
+
+\begin{itemize}
+\item{\textbf{r}}: El usuario tiene la habilidad de leer el contenido de un directorio.
+\item{\textbf{w}}: Tiene la habilidad de escribir en el directorio.
+\item{\textbf{x}}: Tiene la habilidad de entrar en el directorio.
+\end{itemize}
+
+\end{document}

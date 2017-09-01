@@ -1,0 +1,101 @@
+COMANDOS Y CONCEPTOS BÁSICOS DE LINUX
+
+*Bash: Es una mascara para la terminal que determina como luce y se comporta al correrla.
+*echo: ES un comando usado para mostrar mensajes, ejemplo: echo aaa
+ATAJOS:
+*Flechas arriba, abajo: muestra el conjunto de comandos usados en al terminal
+*pwd: Muestra el camino al  directorio de trabajo actual, ejemplo: pwd
+*ls: Muestra el contenido del directorio actual, ejemplo: ls (forma básica)
+*ls -l: Muestra los resultados enlistados por categorias y permisos de cada directorio o documento.
+*ls /etc: Enlista todos los demas directorios menos el actual.
+*ls -l /etc: Enlista el contenido por categorias y permisos.
+CAMINOS PARA UBICAR UN DIRECTORIO
+*CAMINO ABSOLUTO: Ubicación del directorio específico en relación con el directorio home  de un usuario especifíco, ejemplo: ls /home/caedumanu/Documents
+*CAMINO RELATIVO: Ubicacíon del directorio en relación a la ubicación actual del usuario, ejemplo: ls Documents
+OTRAS FORMAS DE CAMINOS:
+
+* ~(tilde): abrevia el camino al directorio home, ejemplo:/home/caedumanu/Desktop se abrevia ~/Desktop
+* .(punto): abrevia el camino referente al directorio actual ejemplo: ./Desktop
+*.. :Permite ir atras jerarquicamente una vez
+*cd: Permite cambiar de directorios, ejemplo: cd Music. Si se coloca sin argumentos lleva al directorio raiz. Se pueden hacer distintos caminos en combinación con los mencionados antes.
+*file:Permite obtener informacion sobre el tipo de archivo de un archivo o directorio, ejemplo: file (nombre de archivo o camino)
+*Tecla Tab: Permite realizar un autocompletado del comando o camino a digitar.
+*Comillas(""): Indican que se trata de un solo objeto, ejemplo: "Notas Original"
+*Backslash(\):Indica que se va ignorar el signigicado del siguiente caracter, ejmplo: Notas\ Original (Ignora el espacio)
+*ls -a: Muestra los documentos ocultos en un directorio
+MANUAL PAGES
+Man: permite obtener información de ayuda sobre un comando en particular, ejemplo: man + "comando"
+Man -k + palabra clave: Realiza un busqueda y enlista todos los comandos relacionados con la palabra clave.
+
+CREANDO DIRECTORIOS
+mkdir + nombre: Crea un directorio con el nombre especificado, ejemplo, mkdir Notas. Puedes usar caminos absolutos o relativos para crear los directorios en la posición deseada.
+mkdir -p +(nombre de los directorios): Crea crea directorios dentro de otros directorios
+mkdir -pv +  (nombre de los directorios):Crea los directorios uno dentro de otros indicando detalles del proceso.
+rmdir + (nombre dir.): Elimina el directorio de nombre seleccionado.
+rmdir + opcions (-p, -vp):Realiza una función a análoga a la de mkdir.
+touch + nombre: Crea un archivo en blanco, ejemplo: touch prueba1
+cp + archivo + destino: comando que copia el archivo seleccionado a la dirección especificada, ejemplo: cp prueba1 Desktop. Tambien puede copiar el contenido de un archivo a otro de nombre dado.
+cp -r + nombre directorio + destino: Realizada una copia de todo el contenido dentro del directorio especificado al destino,ejemplo: cp Notas Documents.
+mv + nombre archivo + destino: mueve archivos o carpetas al destino seleccionado. No requiere el uso de -r. Ejemplo: mv Notas Desktop.
+mv + nombre de archivo + mismo destino/nombre distinto: Permite cambiar el nombre de un archivo en la misma ubicación, ejemplo: mv Notas Notas2
+rm + nombre de archivo: Permite eliminar un archivo, ejemplo: rm prueba1.
+rm -r + nombre de directorio: Elimina al directorio con todo su contenido, ejemplo: rm -r Nota
+
+﻿Comandos en Bash:
+Vi: Es un editor bàsico de texto. We can use the el modo de entrada de texto, para introducir contenido, el modo de edición para realizar acciones de correpciòn  como copiado, eliminado, búsqueda, sustitución y guardado.
+Vi + nombre de archivo: permite crear o abrir un archivo de nombre dado, para luego seleccionar el modo de edición o de entrada. Se puede usar caminos absolutos o relativos para abrir el archivo.
+Dentro del archivo vi, tecleando:
+ i: se entra en el modo de edición. 
+ZZ (mayúsculas) + enter: guardar y salir.
+:q! + enter: Descartar los cambios. Se obtienen solo los últimos cambios guardados.
+:w + enter: Guarda el archivo, pero no se sale de èl.
+:wq + enter: Guardar y salir.
+cat + nom. Archivo: Permite visualizar el contenido del archivo.
+Ctrl + c: Permite salir de cualquier acción inapropiada de tecleo de comandos.
+less + archivo: Permite visualizar archivo grandes con facilidad moviéndote dentro de èl con las teclas de dirección. Las paginas se pasan hacia adelante con la tecla espaciadora y hacia atrás con la tecla b. con q se sale del documento.
+Movimiento dentro de un archivo con vi:
+Teclas de dirección: Permite moverse en todas la direcciones.
+J, k, h, l: movimiento similares al de las teclas de dirección.
+Signo ˆ : Permite mover el cursor al inicio de la línea actual.
+$: mueve el cursor al final de la actual línea.
+nG: Mueve a la línea n especificada.
+G: Mueve a la ultima línea.
+w: Mueve al inicio de la siguiente palabra.
+nw: Mueve el cursor n palabras delante de la línea.
+b: Mueve al inicio de la palabra anterior.
+nb: Mueve  a la posición de n palabras hacia atrás.
+{ : mueve al anterior párrafo.
+}: Mueve al siguiente párrafo.
+x: elimina un carácter.
+nx: elimina n caracteres. 
+dd: elimina la línea actual.
+dn: d seguido por un comando de movimiento. Elimina donde el comando lleve en la línea.
+u: deshace la ultima acción. 
+U: Deshace todos los cambios en línea actual.
+COMODINES: útiles para indicar patrones de interés, comúnmente para acotar opciones. Los comadines básicos son:
+*: representa zero o mas caracteres.
+?: representa un ùnico caracter.
+[]: representa un rango de caracteres:
+Ejemplos 1: ls (caracter)*, muestra los documentos inicializados con el caracter dado.
+Ejemplo 2: ls ¿(carácter)*, muestra los archivos que contengan como segundo carácter el introducido.
+Ejemplo 3: ls *???, muestra archivo que tenga extensiones formadas por tres caracteres.
+Ejemplo 4: ls [sv]*, muestra documentos que inicien por s o v.
+Ejemplo 5: ls *[0-9]*, muestra archivos que contengan algún digito en el nombre.
+Ejemplo 6: [^a-k]*, muestra resultados cuyo nombre no inicie con el rango de letras dadas.
+
+TIPOS DE PERMISOS EN LINUX
+r (read): se puede ver el contenido del archivo solamente.
+w (write): Se puede cambiar el contenido del archivo.
+x (execute): Se puede ejecutar o correr un programa o script.
+Personas a quienes se especifica los permisos:
+propietario (owner): la persona a quien pertenece el archivo.
+Grupo (group): Todo archivo perteneciente a un grupo.
+Otros (others): cualquiera diferente al grupo a al propietario.
+ls -l +camino: permite ver los permisos de los archivos en el camino absoluto o relativo especificado.
+Chmdo + [usuario, grupo, otros o todos (ugoa) + tipo de permiso] + camino: permite modificar el tipo de permiso del archivo en la ubicación
+ especificada.
+
+PERMISOS PARA DIRECTORIOS
+r: tiene la habilidad de leer el contenido de un directorio.
+w: tienes ls habilidad de escribir en el directorio.
+x: tienes la abilidad de entrar en el directorio.

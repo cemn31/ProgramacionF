@@ -1,0 +1,26 @@
+COMANDOS Y CONCEPTOS BÁSICOS DE LINUX
+
+*Bash: Es una mascara para la terminal que determina como luce y se comporta al correrla.
+*echo: ES un comando usado para mostrar mensajes, ejemplo: echo aaa
+ATAJOS:
+*Flechas arriba, abajo: muestra el conjunto de comandos usados en al terminal
+*pwd: Muestra el camino al  directorio de trabajo actual, ejemplo: pwd
+*ls: Muestra el contenido del directorio actual, ejemplo: ls (forma básica)
+*ls -l: Muestra los resultados enlistados por categorias y permisos de cada directorio o documento.
+*ls /etc: Enlista todos los demas directorios menos el actual.
+*ls -l /etc: Enlista el contenido por categorias y permisos.
+CAMINOS PARA UBICAR UN DIRECTORIO
+*CAMINO ABSOLUTO: Ubicación del directorio específico en relación con el directorio home  de un usuario especifíco, ejemplo: ls /home/caedumanu/Documents
+*CAMINO RELATIVO: Ubicacíon del directorio en relación a la ubicación actual del usuario, ejemplo: ls Documents
+OTRAS FORMAS DE CAMINOS:
+* ~(tilde): abrevia el camino al directorio home, ejemplo:/home/caedumanu/Desktop se abrevia ~/Desktop
+* .(punto): abrevia el camino referente al directorio actual ejemplo: ./Desktop
+*.. :Permite ir atras jerarquicamente una vez
+*cd: Permite cambiar de directorios, ejemplo: cd Music. Si se coloca sin argumentos lleva al directorio raiz. Se pueden hacer distintos caminos en combinación con los mencionados antes.
+*file:Permite obtener informacion sobre el tipo de archivo de un archivo o directorio, ejemplo: file (nombre de archivo o camino)
+*Tecla Tab: Permite realizar un autocompletado del comando o camino a digitar.
+*Comillas(""): Indican que se trata de un solo objeto, ejemplo: "Notas Original"
+*Backslash(\):Indica que se va ignorar el signigicado del siguiente caracter, ejmplo: Notas\ Original (Ignora el espacio)
+*ls -a: Muestra los documentos ocultos en un directorio
+MANUAL PAGES
+Man: permite obtener información de ayuda sobre un comando en particular, ejemplo: man
