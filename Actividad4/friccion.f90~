@@ -1,0 +1,50 @@
+program resistencia
+  implicit none
+  real, parameter:: g=9.8, pi=3.1415927, rho_a=1.128, c =0.45, h=0.1,a=45
+  integer, parameter:: size=100
+  integer::i,j
+  real::m,r,v0,vt
+  real, dimension(size)::t,f_x,f_y,x,y
+    ! Leer valores para la velocidad inicial desde la terminal
+  
+  write(*,*) 'MOVIMIENTO PARABÓLICO CON RESISTENCIA DEL AIRE DE UN PROYECTIL ESFÉRICO DE HIERRO'
+  write(*,*) 'TRAYECTORIA EN FUNCIÓN DEL ÁNGULO'
+  write(*,*) 'Introduzca los valores de  la velocidad inicial (v) en m/s'
+  read(*,*)   v0
+  write(*,*) 'Introduzca la masa del proyectil en kgs'
+  read(*,*)   m
+  write(*,*) 'Introduzca el radio del proyectil en mts'
+  read(*,*)   r
+ 
+   !Calculo de la velocidad terminal
+  
+  vt= sqrt((2*m*g)/(rho_a*pi*r**2*C))
+   
+
+  ! convirtiendo ángulo a radianes
+     a = j * pi / 180.0
+  !Condiciones iniciales
+     f_x(1) =(2*vt/(g*(0.01)**2))*(v0*cos(a)-h*v0*cos(a))
+     f_y(1) =(2*vt/(g*(0.01)**2))*(v0*sin(a)-h*v0*sin(a))-vt
+     x(1)=h*v0*cos(a)
+     y(1)=h*(v0*sin(a))
+     t(1)=0.01
+   do i = 1,size
+     
+   !Escribiendo el primer dato
+     t(i+1)=t(i)+h
+     f_x(i+1) = f_x(i) + (2*vt/(g*t(i+1)**2))*(v0*cos(a)-x(i+1))
+     f_y(i+1) = f_y(i) + (2*vt/(g*t(i+1)**2))*(v0*sin(a)-y(i+1))-vt  
+     x(i+1)=x(i)+h*f_x(i)
+     y(i+1)=y(i)+h*f_y(i)   
+
+     write (*,*) x(i+1),y(i+1),vt
+     if (y(i+1)<0) exit 
+   !Escribiendo datos 
+     open(1, file='friccion.dat', status='unknown')
+     write(1,1000) x(i+1), y(i+1)
+     1000 format(f18.10,5x,f18.10)
+  end do 
+  close(1)
+
+  end program resistencia
