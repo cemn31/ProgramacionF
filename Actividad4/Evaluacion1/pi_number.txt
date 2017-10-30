@@ -1,0 +1,15 @@
+APLICACIÓN FORTRAN PARA EL CÁLCULO DEL NÚMERO PI
+
+El número pi cálculado para:
+
+10 terminos: pi=3.23231578
+
+20 terminos: pi=3.18918467
+
+30 terminos: pi=3.17384195
+
+40 terminos: pi=3.16597891
+
+50 terminos: pi=3.16119814
+
+100 terminos: pi=3.15149317

@@ -1,0 +1,27 @@
+!
+!! pinumber.f90
+!! 
+!! Made by (Carlos Eduardo Martinez Nuñez)
+!! Login   <carloseduardo@ltsp142.example.com>
+!! 
+!! Started on  Mon Oct 30 12:24:10 2017 Carlos Eduardo Martinez Nuñez
+!! Last update Time-stamp: <30-oct-2017 12:38:58 carloseduardo>
+!
+
+program pinumber
+  implicit none
+ 
+integer ::i,size
+real, dimension(size)= pinumber
+
+print*, "This program performs the calculation of pi number."
+
+print*,"Introduce the amoung of terms "
+ read*, size
+sum(0) = 0
+do i, size
+pinumber(i) = pimnumber(i) + ((-1)**i)/(2*i+1)
+end do
+
+print*, "pi number=", pinumber
+ end program pinumber

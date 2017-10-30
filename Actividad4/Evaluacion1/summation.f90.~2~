@@ -1,0 +1,42 @@
+!
+!! summation.f90
+!! 
+!! Made by (Carlos Eduardo Martinez Nuñez)
+!! Login   <carloseduardo@ltsp142.example.com>
+!! 
+!! Started on  Mon Oct 30 11:33:01 2017 Carlos Eduardo Martinez Nuñez
+!! Last update Time-stamp: <30-oct-2017 11:47:35 carloseduardo>
+!
+
+! sum.f90
+! Performs summations using in a loop using EXIT statement
+! Saves input information and the summation in a data file
+
+program summation
+implicit none
+integer :: sum, a, mean, harmonic_mean
+
+print*, "This program performs summations. Enter 0 to stop."
+open(unit=20, file="data.txt")
+
+sum = 0
+
+do
+ print*, "Add:"
+ read*, a
+ if (a == 0) then
+  exit
+ else
+    sum = sum + a
+ end if
+ write(10,*) a 
+end do
+ mean=sum/20
+ harmonic_mean=1/mean
+
+print*, "summation=", sum
+write(10,*) "Mean=", mean
+write(10,*) "Harmonic_mean=",harmanic_mean
+close(10)
+
+end
