@@ -1,0 +1,40 @@
+program mcircular
+  !Aplicación Fortran para calcular la trayectoria y posición de la tierra
+  !al rededor del sol
+  implicit none
+  integer::i
+  double precision, parameter::r=1.496d8, pi=1.141592d0, T=365.26d0
+  double precision::a,f_x,f_y
+  double precision,dimension(0:360)::x,y
+  open (1,file="tr_tierra.txt",status="unknown")
+  do i=0,360
+     !angulo en grados
+     a=dble(i*pi/180.0d0)
+     !llamando funciones
+     x(i)=f_x(a)
+     y(i)=f_y(a)
+     write (1,*) x(i),y(i)
+  end do
+  close(1)
+end program mcircular 
+  
+
+
+function f_x(a)
+implicit none
+ !Función de conversión de coordenadas polares a cartesianas
+
+  double precision, parameter::r=1.496d8
+  double precision::f_x
+  double precision, intent(in)::a
+  f_x=r*dcos(a)
+end function f_x
+
+function f_y(a)
+implicit none  
+  !Función de conversión de coordenadas polares a cartesianas
+  double precision, parameter::r=1.496d8
+  double precision::f_y
+  double precision, intent(in)::a
+  f_y=r*dsin(a)
+  end function f_y
