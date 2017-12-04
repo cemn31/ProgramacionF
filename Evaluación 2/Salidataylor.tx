@@ -1,0 +1,1 @@
+Los datos de salida de la aplicación Fortran taylor.f90, corresponden al valor de la función exp_true=exp(x), evaluada en 1, que corresponde al valor real y a su valor calculada por la seria de Maclaurin exptaylor(x,n), tomando 20 terminos. El calculo por Maclaurin presenta un error dado por -(exp_true-exptaylor(x,n))
